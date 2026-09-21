@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Responsive Image Gallery with Flexbox</title>
+    <link rel="stylesheet" href="../assets/style.css" />
+    <style>
+      .rg {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px;
+      }
+      .rg i {
+        flex: 1 1 100px;
+        height: 90px;
+        border-radius: 10px;
+        background: #00cec9;
+      }
+      .rg i:nth-child(odd) {
+        background: #fd79a8;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="wrap">
+      <h1>Responsive Image Gallery with Flexbox</h1>
+      <p class="d">Working demonstration of this program.</p>
+      <div class="rg"><i></i><i></i><i></i><i></i><i></i><i></i></div>
+      <nav>
+        <a class="btn" href="../index.html">Home</a
+        ><a class="btn" href="index.html">CSS Programs</a>
+      </nav>
+    </div>
+  </body>
+</html>

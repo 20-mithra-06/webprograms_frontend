@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Pseudo-classes hover active focus visited</title>
+    <link rel="stylesheet" href="../assets/style.css" />
+    <style>
+      a:hover {
+        color: #fd79a8;
+      }
+      a:visited {
+        color: violet;
+      }
+      a:active {
+        color: red;
+      }
+      input:focus {
+        outline: 3px solid #6c5ce7;
+      }
+      li:first-child {
+        color: #00cec9;
+      }
+      li:nth-child(even) {
+        color: orange;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="wrap">
+      <h1>Pseudo-classes hover active focus visited</h1>
+      <p class="d">Working demonstration of this program.</p>
+      <a href="#">Link (hover, active, visited)</a><br /><input
+        placeholder="Focus me"
+      />
+      <ul>
+        <li>One</li>
+        <li>Two</li>
+        <li>Three</li>
+      </ul>
+      <nav>
+        <a class="btn" href="../index.html">Home</a
+        ><a class="btn" href="index.html">CSS Programs</a>
+      </nav>
+    </div>
+  </body>
+</html>

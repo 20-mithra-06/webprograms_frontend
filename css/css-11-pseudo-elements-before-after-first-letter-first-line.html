@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Pseudo-elements before after first-letter first-line</title>
+    <link rel="stylesheet" href="../assets/style.css" />
+    <style>
+      p.pe::first-letter {
+        font-size: 40px;
+        color: #00cec9;
+      }
+      p.pe::first-line {
+        font-weight: bold;
+      }
+      p.pe::before {
+        content: ">> ";
+      }
+      p.pe::after {
+        content: " <<";
+      }
+      p.pe::selection {
+        background: #fd79a8;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="wrap">
+      <h1>Pseudo-elements before after first-letter first-line</h1>
+      <p class="d">Working demonstration of this program.</p>
+      <p class="pe">
+        Pseudo elements style parts of an element. Select this text too.
+      </p>
+      <nav>
+        <a class="btn" href="../index.html">Home</a
+        ><a class="btn" href="index.html">CSS Programs</a>
+      </nav>
+    </div>
+  </body>
+</html>

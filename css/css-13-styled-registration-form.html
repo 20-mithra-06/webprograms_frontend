@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Styled Registration Form</title>
+    <link rel="stylesheet" href="../assets/style.css" />
+    <style>
+      .rf {
+        display: grid;
+        gap: 8px;
+      }
+      .rf input,
+      .rf button {
+        padding: 10px;
+        border-radius: 8px;
+        border: 1px solid #6c5ce7;
+      }
+      .rf input:focus {
+        outline: none;
+        box-shadow: 0 0 0 3px #6c5ce755;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="wrap">
+      <h1>Styled Registration Form</h1>
+      <p class="d">Working demonstration of this program.</p>
+      <form class="rf">
+        <input placeholder="Name" /><input placeholder="Email" /><input
+          type="password"
+          placeholder="Password"
+        /><button>Register</button>
+      </form>
+      <nav>
+        <a class="btn" href="../index.html">Home</a
+        ><a class="btn" href="index.html">CSS Programs</a>
+      </nav>
+    </div>
+  </body>
+</html>

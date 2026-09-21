@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Dark Mode with CSS Variables</title>
+<link rel="stylesheet" href="../assets/style.css"><style>:root{--bg:#fff;--tx:#111}.m{background:var(--bg);color:var(--tx);padding:20px;border-radius:12px}#d:checked+.m{--bg:#111;--tx:#fff}</style>
+</head>
+<body>
+<div class="wrap">
+<h1>Dark Mode with CSS Variables</h1>
+<p class="d">Working demonstration of this program.</p>
+<input type=checkbox id=d style=width:auto><label for=d> Dark mode</label><div class=m>Toggle the checkbox</div>
+<nav><a class="btn" href="../index.html">Home</a><a class="btn" href="index.html">CSS Programs</a></nav>
+</div>
+</body>
+</html>

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>
+      Change Style Dynamically
+    </title>
+    <link rel="stylesheet" href="../assets/style.css">
+  </head>
+  <body>
+    <div class="wrap">
+      <h1>
+        Change Style Dynamically
+      </h1>
+      <p class="d">
+        Working demonstration of this program.
+      </p>
+      <p id=t>
+        Style me
+      </p>
+      <button id=b>
+        Style
+      </button>
+      <nav>
+        <a class="btn" href="../index.html">
+          Home
+        </a>
+        <a class="btn" href="index.html">
+          JavaScript Programs
+        </a>
+      </nav>
+    </div>
+    <script>
+  const $=i=>document.getElementById(i);
+  $('b').onclick=()=>Object.assign($('t').style,{
+    color:'#00cec9',fontSize:'28px',background:'#0008',padding:'10px'
+  });
+</script>
+  </body>
+</html>

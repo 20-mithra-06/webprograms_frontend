@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>
+      Simple Shopping Cart
+    </title>
+    <link rel="stylesheet" href="../assets/style.css">
+  </head>
+  <body>
+    <div class="wrap">
+      <h1>
+        Simple Shopping Cart
+      </h1>
+      <p class="d">
+        Working demonstration of this program.
+      </p>
+      <div class=row id=p>
+      </div>
+      <ul id=l>
+      </ul>
+      <div class=out id=o>
+      </div>
+      <nav>
+        <a class="btn" href="../index.html">
+          Home
+        </a>
+        <a class="btn" href="index.html">
+          JavaScript Programs
+        </a>
+      </nav>
+    </div>
+    <script>
+  const $=i=>document.getElementById(i);
+  const P={
+    Pen:10,Book:60,Bag:450
+  },
+  C=[];
+  const draw=()=>{
+    $('l').innerHTML=C.map(k=>'<li>'+k+' - Rs '+P[k]+'</li>').join('');
+    $('o').textContent='Total: Rs '+C.reduce((s,k)=>s+P[k],0)
+  };
+  for(const k in P){
+    const b=document.createElement('button');
+    b.textContent='Add '+k;
+    b.onclick=()=>{
+      C.push(k);
+      draw()
+    };
+    $('p').appendChild(b)
+  }
+  draw();
+</script>
+  </body>
+</html>

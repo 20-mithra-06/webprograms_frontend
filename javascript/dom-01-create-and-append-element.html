@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>
+      Create and Append Element
+    </title>
+    <link rel="stylesheet" href="../assets/style.css">
+  </head>
+  <body>
+    <div class="wrap">
+      <h1>
+        Create and Append Element
+      </h1>
+      <p class="d">
+        Working demonstration of this program.
+      </p>
+      <button id=b>
+        Add paragraph
+      </button>
+      <div id=c>
+      </div>
+      <nav>
+        <a class="btn" href="../index.html">
+          Home
+        </a>
+        <a class="btn" href="index.html">
+          JavaScript Programs
+        </a>
+      </nav>
+    </div>
+    <script>
+  const $=i=>document.getElementById(i);
+  let n=0;
+  $('b').onclick=()=>{
+    const p=document.createElement('p');
+    p.textContent='Paragraph '+(++n);
+    $('c').appendChild(p)
+  };
+</script>
+  </body>
+</html>

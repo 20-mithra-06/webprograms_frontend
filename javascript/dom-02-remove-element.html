@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>
+      Remove Element
+    </title>
+    <link rel="stylesheet" href="../assets/style.css">
+  </head>
+  <body>
+    <div class="wrap">
+      <h1>
+        Remove Element
+      </h1>
+      <p class="d">
+        Working demonstration of this program.
+      </p>
+      <p id=a>
+        Remove me
+      </p>
+      <button id=b>
+        Remove
+      </button>
+      <nav>
+        <a class="btn" href="../index.html">
+          Home
+        </a>
+        <a class="btn" href="index.html">
+          JavaScript Programs
+        </a>
+      </nav>
+    </div>
+    <script>
+  const $=i=>document.getElementById(i);
+  $('b').onclick=()=>$('a')?.remove();
+</script>
+  </body>
+</html>

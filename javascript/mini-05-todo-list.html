@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>
+      To-Do List
+    </title>
+    <link rel="stylesheet" href="../assets/style.css">
+  </head>
+  <body>
+    <div class="wrap">
+      <h1>
+        To-Do List
+      </h1>
+      <p class="d">
+        Add tasks, click to strike them, delete with the x button.
+      </p>
+      <div class=row>
+        <input id=i placeholder="New task">
+        <button id=a style="flex:0">
+          Add
+        </button>
+      </div>
+      <ul id=l>
+      </ul>
+      <nav>
+        <a class="btn" href="../index.html">
+          Home
+        </a>
+        <a class="btn" href="index.html">
+          JavaScript Programs
+        </a>
+      </nav>
+    </div>
+    <script>
+  const $=i=>document.getElementById(i);
+  $('a').onclick=()=>{
+    const v=$('i').value.trim();
+    if(!v)return;
+    const li=document.createElement('li');
+    li.textContent=v;
+    li.onclick=()=>li.style.textDecoration='line-through';
+    const x=document.createElement('button');
+    x.textContent='x';
+    x.onclick=e=>{
+      e.stopPropagation();
+      li.remove()
+    };
+    li.append(' ',x);
+    $('l').appendChild(li);
+    $('i').value=''
+  };
+</script>
+  </body>
+</html>

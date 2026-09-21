@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>
+      Shopping Cart with localStorage
+    </title>
+    <link rel="stylesheet" href="../assets/style.css">
+  </head>
+  <body>
+    <div class="wrap">
+      <h1>
+        Shopping Cart with localStorage
+      </h1>
+      <p class="d">
+        The cart persists after page refresh.
+      </p>
+      <div class=row id=p>
+      </div>
+      <h3>
+        Cart
+      </h3>
+      <ul id=l>
+      </ul>
+      <div class=out id=o>
+      </div>
+      <nav>
+        <a class="btn" href="../index.html">
+          Home
+        </a>
+        <a class="btn" href="index.html">
+          JavaScript Programs
+        </a>
+      </nav>
+    </div>
+    <script>
+  const $=i=>document.getElementById(i);
+  const P={
+    Pen:10,Book:60,Bag:450
+  };
+  let C=JSON.parse(localStorage.getItem('cart')||'{}');
+  const draw=()=>{
+    $('l').innerHTML='';
+    let t=0;
+    for(const k in C){
+      t+=C[k]*P[k];
+      const li=document.createElement('li');
+      li.textContent=k+' x'+C[k]+' = Rs '+C[k]*P[k];
+      $('l').appendChild(li)
+    }
+    $('o').textContent='Total: Rs '+t;
+    localStorage.setItem('cart',JSON.stringify(C))
+  };
+  for(const k in P){
+    const b=document.createElement('button');
+    b.textContent='Add '+k+' (Rs '+P[k]+')';
+    b.onclick=()=>{
+      C[k]=(C[k]||0)+1;
+      draw()
+    };
+    $('p').appendChild(b)
+  }
+  draw();
+</script>
+  </body>
+</html>

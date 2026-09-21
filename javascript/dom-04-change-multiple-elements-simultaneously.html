@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>
+      Change Multiple Elements Simultaneously
+    </title>
+    <link rel="stylesheet" href="../assets/style.css">
+  </head>
+  <body>
+    <div class="wrap">
+      <h1>
+        Change Multiple Elements Simultaneously
+      </h1>
+      <p class="d">
+        Working demonstration of this program.
+      </p>
+      <h4 class=k>
+        One
+      </h4>
+      <p class=k>
+        Two
+      </p>
+      <span class=k>
+        Three
+      </span>
+      <br>
+      <br>
+      <button id=b>
+        Change all
+      </button>
+      <nav>
+        <a class="btn" href="../index.html">
+          Home
+        </a>
+        <a class="btn" href="index.html">
+          JavaScript Programs
+        </a>
+      </nav>
+    </div>
+    <script>
+  const $=i=>document.getElementById(i);
+  $('b').onclick=()=>document.querySelectorAll('.k').forEach((e,i)=>{
+    e.textContent='Changed '+(i+1);
+    e.style.color='#00cec9'
+  });
+</script>
+  </body>
+</html>

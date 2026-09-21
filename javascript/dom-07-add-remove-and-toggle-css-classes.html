@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>
+      Add Remove and Toggle CSS Classes
+    </title>
+    <link rel="stylesheet" href="../assets/style.css">
+  </head>
+  <body>
+    <div class="wrap">
+      <h1>
+        Add Remove and Toggle CSS Classes
+      </h1>
+      <p class="d">
+        Working demonstration of this program.
+      </p>
+      <style>
+  .hl {
+    background:#6c5ce7!important;
+    font-size:24px
+  }
+</style>
+      <p class=out id=t>
+        Box
+      </p>
+      <div class=row>
+        <button id=a>
+          Add
+        </button>
+        <button id=r>
+          Remove
+        </button>
+        <button id=x>
+          Toggle
+        </button>
+      </div>
+      <nav>
+        <a class="btn" href="../index.html">
+          Home
+        </a>
+        <a class="btn" href="index.html">
+          JavaScript Programs
+        </a>
+      </nav>
+    </div>
+    <script>
+  const $=i=>document.getElementById(i);
+  $('a').onclick=()=>$('t').classList.add('hl');
+  $('r').onclick=()=>$('t').classList.remove('hl');
+  $('x').onclick=()=>$('t').classList.toggle('hl');
+</script>
+  </body>
+</html>

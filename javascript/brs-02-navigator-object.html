@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>
+      Navigator and Screen Information
+    </title>
+    <link rel="stylesheet" href="../assets/style.css">
+  </head>
+  <body>
+    <div class="wrap">
+      <h1>
+        Navigator and Screen Information
+      </h1>
+      <p class="d">
+        Displays browser, language, platform, screen size and current URL.
+      </p>
+      <table id=t>
+      </table>
+      <nav>
+        <a class="btn" href="../index.html">
+          Home
+        </a>
+        <a class="btn" href="index.html">
+          JavaScript Programs
+        </a>
+      </nav>
+    </div>
+    <script>
+  const $=i=>document.getElementById(i);
+  const I={
+    Browser:navigator.userAgent,Language:navigator.language,Platform:navigator.platform,Online:navigator.onLine,Screen:screen.width+' x '+screen.height,URL:location.href
+  };
+  for(const k in I){
+    const r=$('t').insertRow();
+    r.insertCell().textContent=k;
+    r.insertCell().textContent=I[k]
+  }
+</script>
+  </body>
+</html>

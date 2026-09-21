@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>
+      querySelector and querySelectorAll
+    </title>
+    <link rel="stylesheet" href="../assets/style.css">
+  </head>
+  <body>
+    <div class="wrap">
+      <h1>
+        querySelector and querySelectorAll
+      </h1>
+      <p class="d">
+        Working demonstration of this program.
+      </p>
+      <p class=k>
+        One
+      </p>
+      <p class=k>
+        Two
+      </p>
+      <p id=u>
+        Three
+      </p>
+      <button id=b>
+        Run
+      </button>
+      <pre class=out id=o>
+      </pre>
+      <nav>
+        <a class="btn" href="../index.html">
+          Home
+        </a>
+        <a class="btn" href="index.html">
+          JavaScript Programs
+        </a>
+      </nav>
+    </div>
+    <script>
+  const $=i=>document.getElementById(i);
+  $('b').onclick=()=>{
+    document.querySelector('.k').style.color='cyan';
+    document.querySelectorAll('.k').forEach(e=>e.style.fontWeight='bold');
+    $('o').textContent='querySelector: '+document.querySelector('#u').textContent+'\nquerySelectorAll(.k): '+document.querySelectorAll('.k').length
+  };
+</script>
+  </body>
+</html>

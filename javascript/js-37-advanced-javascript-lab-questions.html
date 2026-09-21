@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>
+      Advanced JavaScript Lab Questions
+    </title>
+    <link rel="stylesheet" href="../assets/style.css">
+  </head>
+  <body>
+    <div class="wrap">
+      <h1>
+        Advanced JavaScript Lab Questions
+      </h1>
+      <p class="d">
+        Working demonstration of this program.
+      </p>
+      <pre class=out id=o>
+      </pre>
+      <nav>
+        <a class="btn" href="../index.html">
+          Home
+        </a>
+        <a class="btn" href="index.html">
+          JavaScript Programs
+        </a>
+      </nav>
+    </div>
+    <script>
+  const $=i=>document.getElementById(i);
+  const p={
+    n:'Lab'
+  };
+  const{
+    n
+  }
+  =p;
+  const s=(...a)=>a.length;
+  const w=ms=>new Promise(r=>setTimeout(r,ms,'async done'));
+  (async()=>{
+    $('o').textContent=`Template: ${n}\nRest args: ${s(1,2,3)}\nSpread: ${[...[1,2],3]}\n`+await w(300)
+  })
+  ();
+</script>
+  </body>
+</html>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>
+      Show and Hide an HTML Element
+    </title>
+    <link rel="stylesheet" href="../assets/style.css">
+  </head>
+  <body>
+    <div class="wrap">
+      <h1>
+        Show and Hide an HTML Element
+      </h1>
+      <p class="d">
+        Working demonstration of this program.
+      </p>
+      <p id=t class=out>
+        Now you see me
+      </p>
+      <button id=b>
+        Show / Hide
+      </button>
+      <nav>
+        <a class="btn" href="../index.html">
+          Home
+        </a>
+        <a class="btn" href="index.html">
+          JavaScript Programs
+        </a>
+      </nav>
+    </div>
+    <script>
+  const $=i=>document.getElementById(i);
+  $('b').onclick=()=>$('t').hidden=!$('t').hidden;
+</script>
+  </body>
+</html>

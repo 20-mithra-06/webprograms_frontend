@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>
+      Create a Dynamic Table
+    </title>
+    <link rel="stylesheet" href="../assets/style.css">
+  </head>
+  <body>
+    <div class="wrap">
+      <h1>
+        Create a Dynamic Table
+      </h1>
+      <p class="d">
+        Working demonstration of this program.
+      </p>
+      <button id=b>
+        Build table
+      </button>
+      <div id=t>
+      </div>
+      <nav>
+        <a class="btn" href="../index.html">
+          Home
+        </a>
+        <a class="btn" href="index.html">
+          JavaScript Programs
+        </a>
+      </nav>
+    </div>
+    <script>
+  const $=i=>document.getElementById(i);
+  const D=[['Arun','CSE',92],['Meena','ECE',88],['Divya','IT',75]];
+  $('b').onclick=()=>{
+    const t=document.createElement('table');
+    t.innerHTML='<tr><th>Name<th>Dept<th>Marks</tr>';
+    D.forEach(r=>{
+      const tr=t.insertRow();
+      r.forEach(v=>tr.insertCell().textContent=v)
+    });
+    $('t').replaceChildren(t)
+  };
+</script>
+  </body>
+</html>

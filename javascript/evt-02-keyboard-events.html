@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>
+      Keyboard Events
+    </title>
+    <link rel="stylesheet" href="../assets/style.css">
+  </head>
+  <body>
+    <div class="wrap">
+      <h1>
+        Keyboard Events
+      </h1>
+      <p class="d">
+        Working demonstration of this program.
+      </p>
+      <input id=t placeholder="Interact here">
+      <pre class=out id=l>
+      </pre>
+      <nav>
+        <a class="btn" href="../index.html">
+          Home
+        </a>
+        <a class="btn" href="index.html">
+          JavaScript Programs
+        </a>
+      </nav>
+    </div>
+    <script>
+  const $=i=>document.getElementById(i);
+  const L=m=>$('l').textContent=m+'\n'+$('l').textContent;
+  ["keydown", "keyup"].forEach(e=>$('t').addEventListener(e,x=>{
+    if(e==='submit')x.preventDefault();
+    L(e+' '+(x.key||''))
+  }));
+</script>
+  </body>
+</html>

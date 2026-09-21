@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>
+      Location Object and Redirect
+    </title>
+    <link rel="stylesheet" href="../assets/style.css">
+  </head>
+  <body>
+    <div class="wrap">
+      <h1>
+        Location Object and Redirect
+      </h1>
+      <p class="d">
+        Working demonstration of this program.
+      </p>
+      <pre class=out id=o>
+      </pre>
+      <button id=b>
+        Redirect to Home
+      </button>
+      <nav>
+        <a class="btn" href="../index.html">
+          Home
+        </a>
+        <a class="btn" href="index.html">
+          JavaScript Programs
+        </a>
+      </nav>
+    </div>
+    <script>
+  const $=i=>document.getElementById(i);
+  $('o').textContent=['href','protocol','host','pathname','search'].map(k=>k+': '+location[k]).join('\n');
+  $('b').onclick=()=>location.href='../index.html';
+</script>
+  </body>
+</html>

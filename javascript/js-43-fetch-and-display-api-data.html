@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>
+      Fetch and Display API Data
+    </title>
+    <link rel="stylesheet" href="../assets/style.css">
+  </head>
+  <body>
+    <div class="wrap">
+      <h1>
+        Fetch and Display API Data
+      </h1>
+      <p class="d">
+        Working demonstration of this program.
+      </p>
+      <button id=b>
+        Load users
+      </button>
+      <ul id=l>
+      </ul>
+      <nav>
+        <a class="btn" href="../index.html">
+          Home
+        </a>
+        <a class="btn" href="index.html">
+          JavaScript Programs
+        </a>
+      </nav>
+    </div>
+    <script>
+  const $=i=>document.getElementById(i);
+  $('b').onclick=async()=>{
+    try{
+      const u=await(await fetch('https://jsonplaceholder.typicode.com/users')).json();
+      $('l').innerHTML=u.map(x=>'<li>'+x.name+' - '+x.email+'</li>').join('')
+    }
+    catch{
+      $('l').innerHTML='<li>Could not load data (check internet)</li>'
+    }
+  };
+</script>
+  </body>
+</html>

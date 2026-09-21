@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>
+      Registration Form Validation
+    </title>
+    <link rel="stylesheet" href="../assets/style.css">
+  </head>
+  <body>
+    <div class="wrap">
+      <h1>
+        Registration Form Validation
+      </h1>
+      <p class="d">
+        Validates name, email, phone and password with regular expressions.
+      </p>
+      <form id=f novalidate>
+        <input id=n placeholder="Name">
+        <div class=err id=e1>
+        </div>
+        <input id=m placeholder="Email">
+        <div class=err id=e2>
+        </div>
+        <input id=p placeholder="Phone">
+        <div class=err id=e3>
+        </div>
+        <input id=w type=password placeholder="Password">
+        <div class=err id=e4>
+        </div>
+        <button>
+          Register
+        </button>
+      </form>
+      <div class=out id=o>
+      </div>
+      <nav>
+        <a class="btn" href="../index.html">
+          Home
+        </a>
+        <a class="btn" href="index.html">
+          JavaScript Programs
+        </a>
+      </nav>
+    </div>
+    <script>
+  const $=i=>document.getElementById(i);
+  const R=[['n',/^[A-Za-z ]{
+    2,
+  }
+  $/,'Letters only, minimum 2'],['m',/^[^\s@]+@[^\s@]+\.[^\s@]+$/,'Invalid email'],['p',/^[6-9]\d{
+    9
+  }
+  $/,'Enter a 10-digit mobile number'],['w',/^(?=.*[A-Z])(?=.*\d).{
+    8,
+  }
+  $/,'8+ characters, 1 capital, 1 digit']];
+  const chk=()=>R.map(([id,re,msg],i)=>{
+    const ok=re.test($(id).value);
+    $('e'+(i+1)).textContent=ok?'':msg;
+    return ok
+  })
+  .every(Boolean);
+  $('f').oninput=chk;
+  $('f').onsubmit=e=>{
+    e.preventDefault();
+    $('o').textContent=chk()?'Registration successful!':''
+  };
+</script>
+  </body>
+</html>

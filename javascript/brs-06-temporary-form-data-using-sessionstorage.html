@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>
+      Temporary Form Data using sessionStorage
+    </title>
+    <link rel="stylesheet" href="../assets/style.css">
+  </head>
+  <body>
+    <div class="wrap">
+      <h1>
+        Temporary Form Data using sessionStorage
+      </h1>
+      <p class="d">
+        Working demonstration of this program.
+      </p>
+      <input id=n placeholder=Name>
+      <input id=e placeholder=Email>
+      <p>
+        Refresh the page: data stays for this tab session.
+      </p>
+      <nav>
+        <a class="btn" href="../index.html">
+          Home
+        </a>
+        <a class="btn" href="index.html">
+          JavaScript Programs
+        </a>
+      </nav>
+    </div>
+    <script>
+  const $=i=>document.getElementById(i);
+  ['n','e'].forEach(i=>{
+    $(i).value=sessionStorage.getItem(i)||'';
+    $(i).oninput=()=>sessionStorage.setItem(i,$(i).value)
+  });
+</script>
+  </body>
+</html>

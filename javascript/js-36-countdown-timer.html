@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>
+      Countdown Timer
+    </title>
+    <link rel="stylesheet" href="../assets/style.css">
+  </head>
+  <body>
+    <div class="wrap">
+      <h1>
+        Countdown Timer
+      </h1>
+      <p class="d">
+        Counts down from the seconds you enter.
+      </p>
+      <input id=n type=number placeholder="Seconds">
+      <button id=g>
+        Start
+      </button>
+      <div class="out big" id=o>
+      </div>
+      <nav>
+        <a class="btn" href="../index.html">
+          Home
+        </a>
+        <a class="btn" href="index.html">
+          JavaScript Programs
+        </a>
+      </nav>
+    </div>
+    <script>
+  const $=i=>document.getElementById(i);
+  let h;
+  $('g').onclick=()=>{
+    let s=+$('n').value;
+    clearInterval(h);
+    $('o').textContent=s;
+    h=setInterval(()=>{
+      s--;
+      $('o').textContent=s>0?s:"Time's up!";
+      if(s<=0)clearInterval(h)
+    },
+    1000)
+  };
+</script>
+  </body>
+</html>

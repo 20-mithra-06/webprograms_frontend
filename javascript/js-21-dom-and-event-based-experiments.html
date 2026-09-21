@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>
+      DOM and Event-Based Experiments
+    </title>
+    <link rel="stylesheet" href="../assets/style.css">
+  </head>
+  <body>
+    <div class="wrap">
+      <h1>
+        DOM and Event-Based Experiments
+      </h1>
+      <p class="d">
+        Working demonstration of this program.
+      </p>
+      <p id=t class=out>
+        Click, double-click or press a key
+      </p>
+      <nav>
+        <a class="btn" href="../index.html">
+          Home
+        </a>
+        <a class="btn" href="index.html">
+          JavaScript Programs
+        </a>
+      </nav>
+    </div>
+    <script>
+  const $=i=>document.getElementById(i);
+  $('t').onclick=()=>$('t').textContent='Clicked';
+  $('t').ondblclick=()=>{
+    $('t').textContent='Double clicked';
+    $('t').style.color='#00cec9'
+  };
+  document.onkeydown=e=>$('t').textContent='Key: '+e.key;
+</script>
+  </body>
+</html>

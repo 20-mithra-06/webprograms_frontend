@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>
+      Event Bubbling and Capturing
+    </title>
+    <link rel="stylesheet" href="../assets/style.css">
+  </head>
+  <body>
+    <div class="wrap">
+      <h1>
+        Event Bubbling and Capturing
+      </h1>
+      <p class="d">
+        Working demonstration of this program.
+      </p>
+      <div id=a class=out>
+        A
+        <div id=b class=out>
+          B
+          <button id=c>
+            C
+          </button>
+        </div>
+      </div>
+      <pre class=out id=l>
+      </pre>
+      <nav>
+        <a class="btn" href="../index.html">
+          Home
+        </a>
+        <a class="btn" href="index.html">
+          JavaScript Programs
+        </a>
+      </nav>
+    </div>
+    <script>
+  const $=i=>document.getElementById(i);
+  ['a','b','c'].forEach(i=>{
+    $(i).addEventListener('click',()=>$('l').textContent+=i+'(bubble) ');
+    $(i).addEventListener('click',()=>$('l').textContent+=i+'(capture) ',true)
+  });
+</script>
+  </body>
+</html>

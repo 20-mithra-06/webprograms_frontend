@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>
+      Tic-Tac-Toe
+    </title>
+    <link rel="stylesheet" href="../assets/style.css">
+  </head>
+  <body>
+    <div class="wrap">
+      <h1>
+        Tic-Tac-Toe
+      </h1>
+      <p class="d">
+        Two player game with win and draw detection.
+      </p>
+      <div id=b style="display:grid;grid-template-columns:repeat(3,1fr);gap:8px">
+      </div>
+      <div class=out id=o>
+      </div>
+      <button id=r>
+        Restart
+      </button>
+      <nav>
+        <a class="btn" href="../index.html">
+          Home
+        </a>
+        <a class="btn" href="index.html">
+          JavaScript Programs
+        </a>
+      </nav>
+    </div>
+    <script>
+  const $=i=>document.getElementById(i);
+  let c,t,over;
+  const W=[[0,1,2],[3,4,5],[6,7,8],[0,3,6],[1,4,7],[2,5,8],[0,4,8],[2,4,6]];
+  const init=()=>{
+    c=Array(9).fill('');
+    t='X';
+    over=false;
+    $('o').textContent='X turn';
+    $('b').innerHTML='';
+    c.forEach((_,i)=>{
+      const b=document.createElement('button');
+      b.style.height='80px';
+      b.style.fontSize='32px';
+      b.onclick=()=>{
+        if(c[i]||over)return;
+        c[i]=t;
+        b.textContent=t;
+        if(W.some(w=>w.every(k=>c[k]===t))){
+          over=true;
+          $('o').textContent=t+' wins!'
+        }
+        else if(c.every(Boolean)){
+          over=true;
+          $('o').textContent='Draw'
+        }
+        else{
+          t=t==='X'?'O':'X';
+          $('o').textContent=t+' turn'
+        }
+      };
+      $('b').appendChild(b)
+    })
+  };
+  $('r').onclick=init;
+  init();
+</script>
+  </body>
+</html>

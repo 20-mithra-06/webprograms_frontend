@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>
+      Drag and Drop
+    </title>
+    <link rel="stylesheet" href="../assets/style.css">
+  </head>
+  <body>
+    <div class="wrap">
+      <h1>
+        Drag and Drop
+      </h1>
+      <p class="d">
+        Drag the item between two boxes.
+      </p>
+      <div class=row>
+        <div class=out id=a style="min-height:120px">
+          <span draggable=true id=i style="padding:10px;background:#6c5ce7;border-radius:8px;cursor:grab;display:inline-block">
+            Drag me
+          </span>
+        </div>
+        <div class=out id=b style="min-height:120px">
+          Drop here
+        </div>
+      </div>
+      <nav>
+        <a class="btn" href="../index.html">
+          Home
+        </a>
+        <a class="btn" href="index.html">
+          JavaScript Programs
+        </a>
+      </nav>
+    </div>
+    <script>
+  const $=i=>document.getElementById(i);
+  [$('a'),$('b')].forEach(z=>{
+    z.ondragover=e=>e.preventDefault();
+    z.ondrop=e=>{
+      e.preventDefault();
+      z.appendChild($('i'))
+    }
+  });
+</script>
+  </body>
+</html>

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>
+      History Object
+    </title>
+    <link rel="stylesheet" href="../assets/style.css">
+  </head>
+  <body>
+    <div class="wrap">
+      <h1>
+        History Object
+      </h1>
+      <p class="d">
+        Working demonstration of this program.
+      </p>
+      <div class=row>
+        <button id=b>
+          Back
+        </button>
+        <button id=f>
+          Forward
+        </button>
+        <button id=r>
+          Reload
+        </button>
+      </div>
+      <div class=out id=o>
+      </div>
+      <nav>
+        <a class="btn" href="../index.html">
+          Home
+        </a>
+        <a class="btn" href="index.html">
+          JavaScript Programs
+        </a>
+      </nav>
+    </div>
+    <script>
+  const $=i=>document.getElementById(i);
+  $('b').onclick=()=>history.back();
+  $('f').onclick=()=>history.forward();
+  $('r').onclick=()=>location.reload();
+  $('o').textContent='History length: '+history.length;
+</script>
+  </body>
+</html>

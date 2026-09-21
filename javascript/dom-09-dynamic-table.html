@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>
+      Add and Delete Table Rows
+    </title>
+    <link rel="stylesheet" href="../assets/style.css">
+  </head>
+  <body>
+    <div class="wrap">
+      <h1>
+        Add and Delete Table Rows
+      </h1>
+      <p class="d">
+        Add student rows to a table and delete them dynamically.
+      </p>
+      <div class=row>
+        <input id=n placeholder=Name>
+        <input id=m type=number placeholder=Marks>
+        <button id=a style="flex:0">
+          Add
+        </button>
+      </div>
+      <table>
+        <thead>
+          <tr>
+            <th>
+              Name
+              <th>
+                Marks
+                <th>
+                </tr>
+              </thead>
+              <tbody id=t>
+              </tbody>
+            </table>
+            <nav>
+              <a class="btn" href="../index.html">
+                Home
+              </a>
+              <a class="btn" href="index.html">
+                JavaScript Programs
+              </a>
+            </nav>
+          </div>
+          <script>
+  const $=i=>document.getElementById(i);
+  $('a').onclick=()=>{
+    if(!$('n').value)return;
+    const r=$('t').insertRow();
+    r.insertCell().textContent=$('n').value;
+    r.insertCell().textContent=$('m').value;
+    const b=document.createElement('button');
+    b.textContent='Delete';
+    b.onclick=()=>r.remove();
+    r.insertCell().appendChild(b);
+    $('n').value=$('m').value=''
+  };
+</script>
+        </body>
+      </html>

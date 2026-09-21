@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>
+      Light and Dark Theme Switcher
+    </title>
+    <link rel="stylesheet" href="../assets/style.css">
+  </head>
+  <body>
+    <div class="wrap">
+      <h1>
+        Light and Dark Theme Switcher
+      </h1>
+      <p class="d">
+        The chosen theme is remembered using localStorage.
+      </p>
+      <button id=b>
+        Toggle theme
+      </button>
+      <nav>
+        <a class="btn" href="../index.html">
+          Home
+        </a>
+        <a class="btn" href="index.html">
+          JavaScript Programs
+        </a>
+      </nav>
+    </div>
+    <script>
+  const $=i=>document.getElementById(i);
+  const ap=()=>document.body.classList.toggle('light',localStorage.getItem('theme')==='light');
+  $('b').onclick=()=>{
+    localStorage.setItem('theme',localStorage.getItem('theme')==='light'?'dark':'light');
+    ap()
+  };
+  ap();
+</script>
+  </body>
+</html>

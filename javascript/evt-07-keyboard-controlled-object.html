@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>
+      Keyboard Controlled Object
+    </title>
+    <link rel="stylesheet" href="../assets/style.css">
+  </head>
+  <body>
+    <div class="wrap">
+      <h1>
+        Keyboard Controlled Object
+      </h1>
+      <p class="d">
+        Move the square with the arrow keys.
+      </p>
+      <div class=out id=f style="height:240px;position:relative">
+        <div id=p style="position:absolute;left:10px;top:10px;width:30px;height:30px;background:#00cec9;border-radius:8px">
+        </div>
+      </div>
+      <nav>
+        <a class="btn" href="../index.html">
+          Home
+        </a>
+        <a class="btn" href="index.html">
+          JavaScript Programs
+        </a>
+      </nav>
+    </div>
+    <script>
+  const $=i=>document.getElementById(i);
+  let x=10,y=10;
+  document.onkeydown=e=>{
+    const m={
+      ArrowRight:[10,0],ArrowLeft:[-10,0],ArrowUp:[0,-10],ArrowDown:[0,10]
+    }
+    [e.key];
+    if(!m)return;
+    e.preventDefault();
+    x=Math.max(0,Math.min(x+m[0],$('f').clientWidth-30));
+    y=Math.max(0,Math.min(y+m[1],$('f').clientHeight-30));
+    $('p').style.left=x+'px';
+    $('p').style.top=y+'px'
+  };
+</script>
+  </body>
+</html>

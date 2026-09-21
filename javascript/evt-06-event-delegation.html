@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>
+      Event Delegation
+    </title>
+    <link rel="stylesheet" href="../assets/style.css">
+  </head>
+  <body>
+    <div class="wrap">
+      <h1>
+        Event Delegation
+      </h1>
+      <p class="d">
+        Working demonstration of this program.
+      </p>
+      <ul id=l>
+        <li>
+          One
+          <li>
+            Two
+            <li>
+              Three
+            </ul>
+            <div class=out id=o>
+            </div>
+            <nav>
+              <a class="btn" href="../index.html">
+                Home
+              </a>
+              <a class="btn" href="index.html">
+                JavaScript Programs
+              </a>
+            </nav>
+          </div>
+          <script>
+  const $=i=>document.getElementById(i);
+  $('l').onclick=e=>{
+    if(e.target.tagName==='LI')$('o').textContent='Clicked '+e.target.textContent
+  };
+</script>
+        </body>
+      </html>

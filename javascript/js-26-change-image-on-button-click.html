@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>
+      Change Image on Button Click
+    </title>
+    <link rel="stylesheet" href="../assets/style.css">
+  </head>
+  <body>
+    <div class="wrap">
+      <h1>
+        Change Image on Button Click
+      </h1>
+      <p class="d">
+        Working demonstration of this program.
+      </p>
+      <img id=m style="width:100%;height:140px;border-radius:12px">
+      <button id=b>
+        Change image
+      </button>
+      <nav>
+        <a class="btn" href="../index.html">
+          Home
+        </a>
+        <a class="btn" href="index.html">
+          JavaScript Programs
+        </a>
+      </nav>
+    </div>
+    <script>
+  const $=i=>document.getElementById(i);
+  const C=['#6c5ce7','#00cec9','#fd79a8'];
+  let i=0;
+  const s=()=>$('m').src='data:image/svg+xml,'+encodeURIComponent('<svg xmlns="http://www.w3.org/2000/svg" width="300" height="140"><rect width="300" height="140" fill="'+C[i]+'"/></svg>');
+  $('b').onclick=()=>{
+    i=(i+1)%C.length;
+    s()
+  };
+  s();
+</script>
+  </body>
+</html>

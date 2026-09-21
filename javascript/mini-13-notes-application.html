@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>
+      Notes Application
+    </title>
+    <link rel="stylesheet" href="../assets/style.css">
+  </head>
+  <body>
+    <div class="wrap">
+      <h1>
+        Notes Application
+      </h1>
+      <p class="d">
+        Notes are saved in localStorage and survive a refresh.
+      </p>
+      <textarea id=t rows=4 placeholder="Write a note">
+      </textarea>
+      <button id=a>
+        Save note
+      </button>
+      <ul id=l>
+      </ul>
+      <nav>
+        <a class="btn" href="../index.html">
+          Home
+        </a>
+        <a class="btn" href="index.html">
+          JavaScript Programs
+        </a>
+      </nav>
+    </div>
+    <script>
+  const $=i=>document.getElementById(i);
+  let N=JSON.parse(localStorage.getItem('notes')||'[]');
+  const draw=()=>{
+    $('l').innerHTML='';
+    N.forEach((n,i)=>{
+      const li=document.createElement('li');
+      li.textContent=n+' ';
+      const x=document.createElement('button');
+      x.textContent='x';
+      x.onclick=()=>{
+        N.splice(i,1);
+        save()
+      };
+      li.appendChild(x);
+      $('l').appendChild(li)
+    })
+  };
+  const save=()=>{
+    localStorage.setItem('notes',JSON.stringify(N));
+    draw()
+  };
+  $('a').onclick=()=>{
+    if($('t').value.trim()){
+      N.push($('t').value.trim());
+      $('t').value='';
+      save()
+    }
+  };
+  draw();
+</script>
+  </body>
+</html>

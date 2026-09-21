@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>
+      Country, State and City Dropdown
+    </title>
+    <link rel="stylesheet" href="../assets/style.css">
+  </head>
+  <body>
+    <div class="wrap">
+      <h1>
+        Country, State and City Dropdown
+      </h1>
+      <p class="d">
+        Each dropdown fills the next one.
+      </p>
+      <select id=c>
+      </select>
+      <select id=s>
+      </select>
+      <select id=y>
+      </select>
+      <nav>
+        <a class="btn" href="../index.html">
+          Home
+        </a>
+        <a class="btn" href="index.html">
+          JavaScript Programs
+        </a>
+      </nav>
+    </div>
+    <script>
+  const $=i=>document.getElementById(i);
+  const D={
+    India:{
+      "Tamil Nadu":["Chennai","Madurai"],Kerala:["Kochi","Kollam"]
+    },
+    USA:{
+      Texas:["Austin","Dallas"],Ohio:["Columbus"]
+    }
+  };
+  const fill=(e,a)=>{
+    e.innerHTML='';
+    a.forEach(v=>e.add(new Option(v)))
+  };
+  $('c').onchange=()=>{
+    fill($('s'),Object.keys(D[$('c').value]));
+    $('s').onchange()
+  };
+  $('s').onchange=()=>fill($('y'),D[$('c').value][$('s').value]);
+  fill($('c'),Object.keys(D));
+  $('c').onchange();
+</script>
+  </body>
+</html>

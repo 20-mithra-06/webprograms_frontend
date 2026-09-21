@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>
+      College Admission Form
+    </title>
+    <link rel="stylesheet" href="../assets/style.css">
+  </head>
+  <body>
+    <div class="wrap">
+      <h1>
+        College Admission Form
+      </h1>
+      <p class="d">
+        Working demonstration of this program.
+      </p>
+      <div id=f>
+      </div>
+      <button id=s>
+        Submit
+      </button>
+      <div class=out id=o>
+      </div>
+      <nav>
+        <a class="btn" href="../index.html">
+          Home
+        </a>
+        <a class="btn" href="index.html">
+          JavaScript Programs
+        </a>
+      </nav>
+    </div>
+    <script>
+  const $=i=>document.getElementById(i);
+  const FP={
+    "name": ["text", "Name", "^[A-Za-z ]{2,}$", "Letters only, minimum 2 characters"], "user": ["text", "Username", "^\\w{4,}$", "Username needs 4 or more characters"], "age": ["number", "Age", "^(1[6-9]|[2-9]\\d)$", "Age must be between 16 and 99"], "phone": ["tel", "Mobile number", "^[6-9]\\d{9}$", "Enter a valid 10-digit mobile number"], "email": ["email", "Email", "^[^\\s@]+@[^\\s@]+\\.[^\\s@]+$", "Enter a valid email address"], "pass": ["password", "Password", "^.{8,}$", "Minimum 8 characters"], "strong": ["password", "Password", "^(?=.*[a-z])(?=.*[A-Z])(?=.*\\d)(?=.*\\W).{8,}$", "Use upper, lower, digit and symbol (8+)"], "confirm": ["confirm", "Confirm password", "pass", "Passwords do not match"], "dob": ["date", "Date of birth", "", "Date of birth must be in the past"], "gender": ["radio", "Gender", "", "Select a gender", ["Male", "Female", "Other"]], "rating": ["radio", "Rating", "", "Select a rating", ["1", "2", "3", "4", "5"]], "terms": ["check", "I accept the terms", "", "You must accept the terms"], "course": ["select", "Course", "", "Select a course", ["CSE", "ECE", "IT", "MECH"]], "position": ["select", "Position", "", "Select a position", ["Developer", "Tester", "Designer"]], "area": ["area", "Message (minimum 10 characters)", "", "Enter at least 10 characters"]
+  },
+  K=["name", "dob", "gender", "phone", "email", "course", "area", "terms"],G={
+  };
+  K.forEach(k=>{
+    const[t,l,p,m,o]=FP[k];
+    const d=document.createElement('div');
+    let e;
+    if(t==='select'){
+      e=document.createElement('select');
+      ['',...o].forEach(v=>e.add(new Option(v||'Choose '+l,v)))
+    }
+    else if(t==='radio'){
+      e=document.createElement('div');
+      e.append(l+': ');
+      o.forEach(v=>e.insertAdjacentHTML('beforeend','<label><input type=radio name='+k+' value="'+v+'" style="width:auto"> '+v+'</label> '))
+    }
+    else if(t==='check'){
+      e=document.createElement('label');
+      e.innerHTML='<input type=checkbox style="width:auto"> '+l
+    }
+    else if(t==='area'){
+      e=document.createElement('textarea');
+      e.placeholder=l
+    }
+    else{
+      e=document.createElement('input');
+      e.type=t==='confirm'?'password':t;
+      e.placeholder=l
+    }
+    const er=document.createElement('div');
+    er.className='err';
+    d.append(e,er);
+    $('f').appendChild(d);
+    G[k]={
+      e,er
+    }
+  });
+  const val=k=>{
+    const[t,l,p]=FP[k],e=G[k].e;
+    const v=t==='radio'?(e.querySelector(':checked')||{
+    })
+    .value:t==='check'?e.querySelector('input').checked:e.value;
+    if(t==='confirm')return v!==''&&v===G[p].e.value;
+    if(t==='dob')return !!v&&new Date(v)<new Date();
+    if(t==='select'||t==='radio')return !!v;
+    if(t==='check')return v;
+    if(t==='area')return v.trim().length>=10;
+    return new RegExp(p).test(v)
+  };
+  const chk=()=>K.map(k=>{
+    const ok=!!val(k);
+    G[k].er.textContent=ok?'':FP[k][3];
+    return ok
+  })
+  .every(Boolean);
+  $('f').oninput=$('f').onchange=chk;
+  $('s').onclick=()=>{
+    $('o').textContent=chk()?'Form submitted successfully!':'Please fix the errors above'
+  };
+</script>
+  </body>
+</html>

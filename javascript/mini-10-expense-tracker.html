@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>
+      Expense Tracker
+    </title>
+    <link rel="stylesheet" href="../assets/style.css">
+  </head>
+  <body>
+    <div class="wrap">
+      <h1>
+        Expense Tracker
+      </h1>
+      <p class="d">
+        Working demonstration of this program.
+      </p>
+      <div class=row>
+        <input id=d placeholder=Description>
+        <input id=a type=number placeholder=Amount>
+        <button id=s style="flex:0">
+          Add
+        </button>
+      </div>
+      <ul id=l>
+      </ul>
+      <div class=out id=o>
+      </div>
+      <nav>
+        <a class="btn" href="../index.html">
+          Home
+        </a>
+        <a class="btn" href="index.html">
+          JavaScript Programs
+        </a>
+      </nav>
+    </div>
+    <script>
+  const $=i=>document.getElementById(i);
+  let X=JSON.parse(localStorage.getItem('exp')||'[]');
+  const draw=()=>{
+    $('l').innerHTML='';
+    X.forEach((r,i)=>{
+      const li=document.createElement('li'),b=document.createElement('button');
+      li.textContent=r.d+' - Rs '+r.a+' ';
+      b.textContent='x';
+      b.onclick=()=>{
+        X.splice(i,1);
+        save()
+      };
+      li.appendChild(b);
+      $('l').appendChild(li)
+    });
+    $('o').textContent='Total: Rs '+X.reduce((s,r)=>s+r.a,0)
+  };
+  const save=()=>{
+    localStorage.setItem('exp',JSON.stringify(X));
+    draw()
+  };
+  $('s').onclick=()=>{
+    if($('d').value&&+$('a').value>0){
+      X.push({
+        d:$('d').value,a:+$('a').value
+      });
+      $('d').value=$('a').value='';
+      save()
+    }
+  };
+  draw();
+</script>
+  </body>
+</html>

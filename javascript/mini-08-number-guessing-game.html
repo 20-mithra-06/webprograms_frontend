@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>
+      Number Guessing Game
+    </title>
+    <link rel="stylesheet" href="../assets/style.css">
+  </head>
+  <body>
+    <div class="wrap">
+      <h1>
+        Number Guessing Game
+      </h1>
+      <p class="d">
+        Guess the number between 1 and 100.
+      </p>
+      <input id=n type=number min=1 max=100>
+      <button id=g>
+        Guess
+      </button>
+      <div class=out id=o>
+        Guess a number from 1 to 100
+      </div>
+      <nav>
+        <a class="btn" href="../index.html">
+          Home
+        </a>
+        <a class="btn" href="index.html">
+          JavaScript Programs
+        </a>
+      </nav>
+    </div>
+    <script>
+  const $=i=>document.getElementById(i);
+  let r=Math.ceil(Math.random()*100),c=0;
+  $('g').onclick=()=>{
+    const v=+$('n').value;
+    c++;
+    $('o').textContent=v===r?'Correct in '+c+' tries!':v<r?'Too low':'Too high';
+    if(v===r){
+      r=Math.ceil(Math.random()*100);
+      c=0
+    }
+  };
+</script>
+  </body>
+</html>

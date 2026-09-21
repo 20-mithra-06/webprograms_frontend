@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>
+      Searchable Table
+    </title>
+    <link rel="stylesheet" href="../assets/style.css">
+  </head>
+  <body>
+    <div class="wrap">
+      <h1>
+        Searchable Table
+      </h1>
+      <p class="d">
+        Filter table rows while typing.
+      </p>
+      <input id=s placeholder="Search...">
+      <table id=t>
+        <tr>
+          <td>
+            Arun
+            <td>
+              CSE
+            </tr>
+            <tr>
+              <td>
+                Divya
+                <td>
+                  ECE
+                </tr>
+                <tr>
+                  <td>
+                    Karthik
+                    <td>
+                      IT
+                    </tr>
+                    <tr>
+                      <td>
+                        Meena
+                        <td>
+                          CSE
+                        </tr>
+                      </table>
+                      <nav>
+                        <a class="btn" href="../index.html">
+                          Home
+                        </a>
+                        <a class="btn" href="index.html">
+                          JavaScript Programs
+                        </a>
+                      </nav>
+                    </div>
+                    <script>
+  const $=i=>document.getElementById(i);
+  $('s').oninput=e=>document.querySelectorAll('#t tr').forEach(r=>r.hidden=!r.textContent.toLowerCase().includes(e.target.value.toLowerCase()));
+</script>
+                  </body>
+                </html>

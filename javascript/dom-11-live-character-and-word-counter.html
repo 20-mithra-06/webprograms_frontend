@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>
+      Live Character and Word Counter
+    </title>
+    <link rel="stylesheet" href="../assets/style.css">
+  </head>
+  <body>
+    <div class="wrap">
+      <h1>
+        Live Character and Word Counter
+      </h1>
+      <p class="d">
+        Working demonstration of this program.
+      </p>
+      <textarea id=t rows=4 placeholder="Type here">
+      </textarea>
+      <div class=out id=o>
+        0 characters, 0 words
+      </div>
+      <nav>
+        <a class="btn" href="../index.html">
+          Home
+        </a>
+        <a class="btn" href="index.html">
+          JavaScript Programs
+        </a>
+      </nav>
+    </div>
+    <script>
+  const $=i=>document.getElementById(i);
+  $('t').oninput=()=>$('o').textContent=$('t').value.length+' characters, '+$('t').value.trim().split(/\s+/).filter(Boolean).length+' words';
+</script>
+  </body>
+</html>

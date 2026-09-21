@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>
+      Interactive Portfolio Website
+    </title>
+    <link rel="stylesheet" href="../assets/style.css">
+  </head>
+  <body>
+    <div class="wrap">
+      <h1>
+        Interactive Portfolio Website
+      </h1>
+      <p class="d">
+        Working demonstration of this program.
+      </p>
+      <h2 id=h>
+      </h2>
+      <p>
+        Web developer in training
+      </p>
+      <div class=row>
+        <a class=btn href=#p>
+          Projects
+        </a>
+        <a class=btn href=#c>
+          Contact
+        </a>
+      </div>
+      <h3 id=p>
+        Projects
+      </h3>
+      <ul>
+        <li>
+          Calculator
+          <li>
+            To-Do List
+            <li>
+              Quiz
+            </ul>
+            <h3 id=c>
+              Contact
+            </h3>
+            <input placeholder=Email>
+            <button id=t>
+              Toggle theme
+            </button>
+            <a href="https://20-mithra-06.github.io/mithrasrikharportfolio/" target="_blank">
+    <button>My Portfolio</button> 
+</a>
+            <nav>
+              <a class="btn" href="../index.html">
+                Home
+              </a>
+              <a class="btn" href="index.html">
+                JavaScript Programs
+              </a>
+            </nav>
+          </div>
+          <script>
+  const $=i=>document.getElementById(i);
+  const w='Hi, I am a developer';
+  let i=0;
+  setInterval(()=>{
+    if(i<=w.length)$('h').textContent=w.slice(0,i++)
+  },
+  80);
+  $('t').onclick=()=>document.body.classList.toggle('light');
+  document.documentElement.style.scrollBehavior='smooth';
+</script>
+        </body>
+      </html>

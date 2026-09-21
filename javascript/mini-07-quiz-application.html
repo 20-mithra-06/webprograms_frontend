@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>
+      Quiz Application
+    </title>
+    <link rel="stylesheet" href="../assets/style.css">
+  </head>
+  <body>
+    <div class="wrap">
+      <h1>
+        Quiz Application
+      </h1>
+      <p class="d">
+        A multiple choice quiz with a final score.
+      </p>
+      <div id=q>
+      </div>
+      <div class=out id=o>
+      </div>
+      <nav>
+        <a class="btn" href="../index.html">
+          Home
+        </a>
+        <a class="btn" href="index.html">
+          JavaScript Programs
+        </a>
+      </nav>
+    </div>
+    <script>
+  const $=i=>document.getElementById(i);
+  const Q=[["Capital of India?",["Delhi","Mumbai"],0],["2 + 2 = ?",["3","4"],1],["HTML stands for?",["Hyper Text Markup Language","High Tool ML"],0]];
+  let i=0,s=0;
+  const show=()=>{
+    if(i>=Q.length){
+      $('q').innerHTML='';
+      $('o').textContent='Score: '+s+'/'+Q.length;
+      return
+    }
+    $('q').innerHTML='<h3>'+Q[i][0]+'</h3>';
+    Q[i][1].forEach((x,j)=>{
+      const b=document.createElement('button');
+      b.textContent=x;
+      b.style.margin='4px';
+      b.onclick=()=>{
+        if(j===Q[i][2])s++;
+        i++;
+        show()
+      };
+      $('q').appendChild(b)
+    })
+  };
+  show();
+</script>
+  </body>
+</html>

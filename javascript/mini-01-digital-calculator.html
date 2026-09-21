@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>
+      Digital Calculator
+    </title>
+    <link rel="stylesheet" href="../assets/style.css">
+  </head>
+  <body>
+    <div class="wrap">
+      <h1>
+        Digital Calculator
+      </h1>
+      <p class="d">
+        A calculator with basic arithmetic operations.
+      </p>
+      <input id=d readonly>
+      <div id=k style="display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin-top:8px">
+      </div>
+      <nav>
+        <a class="btn" href="../index.html">
+          Home
+        </a>
+        <a class="btn" href="index.html">
+          JavaScript Programs
+        </a>
+      </nav>
+    </div>
+    <script>
+  const $=i=>document.getElementById(i);
+  const d=$('d'),k=$('k');
+  '7 8 9 / 4 5 6 * 1 2 3 - 0 . = +'.split(' ').concat('C').forEach(v=>{
+    const b=document.createElement('button');
+    b.textContent=v;
+    b.onclick=()=>{
+      if(v==='C')d.value='';
+      else if(v==='='){
+        try{
+          d.value=Function('return '+d.value)()
+        }
+        catch{
+          d.value='Error'
+        }
+      }
+      else d.value+=v
+    };
+    k.appendChild(b)
+  });
+</script>
+  </body>
+</html>

@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>
+      Student Marks and Grade Calculator
+    </title>
+    <link rel="stylesheet" href="../assets/style.css">
+  </head>
+  <body>
+    <div class="wrap">
+      <h1>
+        Student Marks and Grade Calculator
+      </h1>
+      <p class="d">
+        Enter the values and press Run to see the result.
+      </p>
+      <div id=f>
+      </div>
+      <button id=g>
+        Run
+      </button>
+      <pre class=out id=o style="white-space:pre-wrap">
+      </pre>
+      <nav>
+        <a class="btn" href="../index.html">
+          Home
+        </a>
+        <a class="btn" href="index.html">
+          JavaScript Programs
+        </a>
+      </nav>
+    </div>
+    <script>
+  const $=i=>document.getElementById(i);
+  const S=['n', 'n', 'n'],F=(x,y,z,p,q)=>(m=>{
+    const t=m[0]+m[1]+m[2],a=t/3;
+    return 'Total: '+t+'\nAverage: '+a.toFixed(2)+'\nGrade: '+(a>=90?'A+':a>=75?'A':a>=60?'B':a>=40?'C':'Fail')
+  })
+  ([x,y,z]);
+  const I=S.map(t=>{
+    const e=document.createElement('input');
+    e.placeholder={
+      n:'Number',a:'Numbers separated by commas',s:'Text'
+    }
+    [t];
+    if(t==='n')e.type='number';
+    $('f').appendChild(e);
+    return e
+  });
+  $('g').onclick=async()=>{
+    try{
+      $('o').textContent=await F(...I.map((e,i)=>S[i]==='n'?+e.value:S[i]==='a'?e.value.split(',').map(Number):e.value))
+    }
+    catch{
+      $('o').textContent='Invalid input'
+    }
+  };
+  if(!S.length)$('g').click();
+</script>
+  </body>
+</html>

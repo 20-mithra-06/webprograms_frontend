@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>
+      localStorage Store Retrieve Update Delete and Clear
+    </title>
+    <link rel="stylesheet" href="../assets/style.css">
+  </head>
+  <body>
+    <div class="wrap">
+      <h1>
+        localStorage Store Retrieve Update Delete and Clear
+      </h1>
+      <p class="d">
+        Working demonstration of this program.
+      </p>
+      <div class=row>
+        <input id=k placeholder=Key>
+        <input id=v placeholder=Value>
+      </div>
+      <div class=row>
+        <button id=s>
+          Store / Update
+        </button>
+        <button id=g>
+          Retrieve
+        </button>
+        <button id=d>
+          Delete
+        </button>
+        <button id=c>
+          Clear all
+        </button>
+      </div>
+      <pre class=out id=o>
+      </pre>
+      <nav>
+        <a class="btn" href="../index.html">
+          Home
+        </a>
+        <a class="btn" href="index.html">
+          JavaScript Programs
+        </a>
+      </nav>
+    </div>
+    <script>
+  const $=i=>document.getElementById(i);
+  const show=()=>$('o').textContent=Object.keys(localStorage).map(k=>k+' = '+localStorage[k]).join('\n');
+  $('s').onclick=()=>{
+    localStorage.setItem($('k').value,$('v').value);
+    show()
+  };
+  $('g').onclick=()=>$('o').textContent=$('k').value+' = '+localStorage.getItem($('k').value);
+  $('d').onclick=()=>{
+    localStorage.removeItem($('k').value);
+    show()
+  };
+  $('c').onclick=()=>{
+    localStorage.clear();
+    show()
+  };
+  show();
+</script>
+  </body>
+</html>

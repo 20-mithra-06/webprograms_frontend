@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>
+      Currency Converter
+    </title>
+    <link rel="stylesheet" href="../assets/style.css">
+  </head>
+  <body>
+    <div class="wrap">
+      <h1>
+        Currency Converter
+      </h1>
+      <p class="d">
+        Working demonstration of this program.
+      </p>
+      <div class=row>
+        <input id=a type=number value=1>
+        <select id=f>
+          <option>
+            USD
+            <option>
+              EUR
+              <option>
+                GBP
+                <option>
+                  INR
+                </select>
+                <select id=t>
+                  <option>
+                    INR
+                    <option>
+                      USD
+                      <option>
+                        EUR
+                        <option>
+                          GBP
+                        </select>
+                      </div>
+                      <button id=b>
+                        Convert
+                      </button>
+                      <div class=out id=o>
+                      </div>
+                      <nav>
+                        <a class="btn" href="../index.html">
+                          Home
+                        </a>
+                        <a class="btn" href="index.html">
+                          JavaScript Programs
+                        </a>
+                      </nav>
+                    </div>
+                    <script>
+  const $=i=>document.getElementById(i);
+  $('b').onclick=async()=>{
+    try{
+      const r=await(await fetch('https://api.frankfurter.dev/v1/latest?base='+$('f').value+'&symbols='+$('t').value)).json();
+      $('o').textContent=$('a').value+' '+$('f').value+' = '+($('a').value*r.rates[$('t').value]).toFixed(2)+' '+$('t').value
+    }
+    catch{
+      $('o').textContent='Conversion failed (same currency or no internet)'
+    }
+  };
+</script>
+                  </body>
+                </html>

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>
+      BMI Calculator
+    </title>
+    <link rel="stylesheet" href="../assets/style.css">
+  </head>
+  <body>
+    <div class="wrap">
+      <h1>
+        BMI Calculator
+      </h1>
+      <p class="d">
+        Calculates body mass index from weight and height.
+      </p>
+      <div class=row>
+        <input id=w type=number placeholder="Weight (kg)">
+        <input id=h type=number placeholder="Height (cm)">
+      </div>
+      <button id=g>
+        Calculate
+      </button>
+      <div class=out id=o>
+      </div>
+      <nav>
+        <a class="btn" href="../index.html">
+          Home
+        </a>
+        <a class="btn" href="index.html">
+          JavaScript Programs
+        </a>
+      </nav>
+    </div>
+    <script>
+  const $=i=>document.getElementById(i);
+  $('g').onclick=()=>{
+    const b=$('w').value/(($('h').value/100)**2);
+    $('o').textContent=isFinite(b)?b.toFixed(1)+' - '+(b<18.5?'Underweight':b<25?'Normal':b<30?'Overweight':'Obese'):'Enter valid values'
+  };
+</script>
+  </body>
+</html>

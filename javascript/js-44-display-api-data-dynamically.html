@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>
+      Display API Data Dynamically
+    </title>
+    <link rel="stylesheet" href="../assets/style.css">
+  </head>
+  <body>
+    <div class="wrap">
+      <h1>
+        Display API Data Dynamically
+      </h1>
+      <p class="d">
+        Working demonstration of this program.
+      </p>
+      <button id=b>
+        Load Asian countries
+      </button>
+      <div id=l class=row style="margin-top:10px">
+      </div>
+      <nav>
+        <a class="btn" href="../index.html">
+          Home
+        </a>
+        <a class="btn" href="index.html">
+          JavaScript Programs
+        </a>
+      </nav>
+    </div>
+    <script>
+  const $=i=>document.getElementById(i);
+  $('b').onclick=async()=>{
+    try{
+      const r=await(await fetch('https://restcountries.com/v3.1/region/asia?fields=name,capital,flags')).json();
+      $('l').innerHTML=r.slice(0,8).map(c=>'<div class=out style="flex:1 1 140px;text-align:center"><img src="'+c.flags.svg+'" width=60><br>'+c.name.common+'<br><small>'+(c.capital[0]||'')+'</small></div>').join('')
+    }
+    catch{
+      $('l').textContent='Could not load data (check internet)'
+    }
+  };
+</script>
+  </body>
+</html>

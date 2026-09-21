@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>
+      Counter with Increment and Decrement
+    </title>
+    <link rel="stylesheet" href="../assets/style.css">
+  </head>
+  <body>
+    <div class="wrap">
+      <h1>
+        Counter with Increment and Decrement
+      </h1>
+      <p class="d">
+        Working demonstration of this program.
+      </p>
+      <div class="out big" id=o>
+        0
+      </div>
+      <div class=row>
+        <button id=i>
+          +
+        </button>
+        <button id=d>
+          -
+        </button>
+        <button id=r>
+          Reset
+        </button>
+      </div>
+      <nav>
+        <a class="btn" href="../index.html">
+          Home
+        </a>
+        <a class="btn" href="index.html">
+          JavaScript Programs
+        </a>
+      </nav>
+    </div>
+    <script>
+  const $=i=>document.getElementById(i);
+  let c=0;
+  const s=()=>$('o').textContent=c;
+  $('i').onclick=()=>{
+    c++;
+    s()
+  };
+  $('d').onclick=()=>{
+    c--;
+    s()
+  };
+  $('r').onclick=()=>{
+    c=0;
+    s()
+  };
+</script>
+  </body>
+</html>

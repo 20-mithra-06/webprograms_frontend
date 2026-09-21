@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>
+      Stopwatch
+    </title>
+    <link rel="stylesheet" href="../assets/style.css">
+  </head>
+  <body>
+    <div class="wrap">
+      <h1>
+        Stopwatch
+      </h1>
+      <p class="d">
+        Start, stop and reset a stopwatch.
+      </p>
+      <div class="out big" id=o>
+        0.00
+      </div>
+      <div class=row>
+        <button id=s>
+          Start
+        </button>
+        <button id=p>
+          Stop
+        </button>
+        <button id=r>
+          Reset
+        </button>
+      </div>
+      <nav>
+        <a class="btn" href="../index.html">
+          Home
+        </a>
+        <a class="btn" href="index.html">
+          JavaScript Programs
+        </a>
+      </nav>
+    </div>
+    <script>
+  const $=i=>document.getElementById(i);
+  let t=0,h;
+  const sh=()=>$('o').textContent=(t/100).toFixed(2);
+  $('s').onclick=()=>{
+    clearInterval(h);
+    h=setInterval(()=>{
+      t++;
+      sh()
+    },
+    10)
+  };
+  $('p').onclick=()=>clearInterval(h);
+  $('r').onclick=()=>{
+    clearInterval(h);
+    t=0;
+    sh()
+  };
+</script>
+  </body>
+</html>

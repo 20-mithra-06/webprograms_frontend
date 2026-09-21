@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>
+      Complete Interactive Webpage
+    </title>
+    <link rel="stylesheet" href="../assets/style.css">
+  </head>
+  <body>
+    <div class="wrap">
+      <h1>
+        Complete Interactive Webpage
+      </h1>
+      <p class="d">
+        Working demonstration of this program.
+      </p>
+      <h2>
+        Interactive page
+      </h2>
+      <input id=n placeholder="Your name">
+      <button id=g>
+        Greet
+      </button>
+      <div class="out big" id=o>
+      </div>
+      <button id=c>
+        Random color
+      </button>
+      <nav>
+        <a class="btn" href="../index.html">
+          Home
+        </a>
+        <a class="btn" href="index.html">
+          JavaScript Programs
+        </a>
+      </nav>
+    </div>
+    <script>
+  const $=i=>document.getElementById(i);
+  $('g').onclick=()=>$('o').textContent='Hello, '+($('n').value||'friend')+'!';
+  $('c').onclick=()=>document.body.style.background='hsl('+Math.random()*360+',55%,22%)';
+</script>
+  </body>
+</html>

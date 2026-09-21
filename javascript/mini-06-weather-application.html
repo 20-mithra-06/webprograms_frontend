@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>
+      Weather Application
+    </title>
+    <link rel="stylesheet" href="../assets/style.css">
+  </head>
+  <body>
+    <div class="wrap">
+      <h1>
+        Weather Application
+      </h1>
+      <p class="d">
+        Working demonstration of this program.
+      </p>
+      <select id=c>
+        <option value="13.08,80.27">
+          Chennai
+          <option value="28.61,77.21">
+            Delhi
+            <option value="19.08,72.88">
+              Mumbai
+              <option value="12.97,77.59">
+                Bengaluru
+              </select>
+              <button id=b>
+                Get weather
+              </button>
+              <div class=out id=o>
+              </div>
+              <nav>
+                <a class="btn" href="../index.html">
+                  Home
+                </a>
+                <a class="btn" href="index.html">
+                  JavaScript Programs
+                </a>
+              </nav>
+            </div>
+            <script>
+  const $=i=>document.getElementById(i);
+  $('b').onclick=async()=>{
+    const[la,lo]=$('c').value.split(',');
+    $('o').textContent='Loading...';
+    try{
+      const r=await(await fetch('https://api.open-meteo.com/v1/forecast?latitude='+la+'&longitude='+lo+'&current_weather=true')).json();
+      $('o').textContent='Temperature: '+r.current_weather.temperature+' C\nWind: '+r.current_weather.windspeed+' km/h'
+    }
+    catch{
+      $('o').textContent='Could not load weather (check internet)'
+    }
+  };
+</script>
+          </body>
+        </html>
